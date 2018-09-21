@@ -8,8 +8,8 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color:rgb(139, 195, 74);
+  height: 30px;
   padding: 20px;
   color: white;
 }
@@ -20,6 +20,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+.Google-button{
+  background-color: rgb(244, 67, 54);
 }
 
 @keyframes App-logo-spin {

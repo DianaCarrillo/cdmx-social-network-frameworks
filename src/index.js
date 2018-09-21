@@ -1,8 +1,11 @@
+// Dependencias
 import React from 'react';
 import ReactDOM from 'react-dom';
+import firebase from 'firebase';
+
+// ficheros, assets
 import './index.css';
 import App from './App';
-import firebase from 'firebase';
 
 firebase.initializeApp({
     apiKey: "AIzaSyCfn6b_XlLJBPuG6_6oWCUR4RxqA39JzSs",
@@ -13,4 +16,7 @@ firebase.initializeApp({
     messagingSenderId: "674937726579"
   });
 
+
+// ReactDOM, llama al método render. Le indicamos qué componente queremos renderizar en este caso es (App), que está importado arriba
+// y el elemento donde lo queremos renderizar en el html, es decir (root)
 ReactDOM.render(<App />, document.getElementById('root'));
