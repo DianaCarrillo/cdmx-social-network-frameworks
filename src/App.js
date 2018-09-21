@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Button } from 'react-materialize';
+import Navbar from './Navbar';
+
 // assets // fichero app
 import './App.css';
 
@@ -55,27 +57,28 @@ if (this.state.user){
      <p>Hola {this.state.user.displayName}!</p>
      <Button onClick= {this.handleLogout}>Salir</Button>
     </div>
-  );
-// si no está, que haga otra cosa
-}else{
-  return(
-  <Button waves='light' className="Google-button" onClick={this.handleAuth}>Login con Google</Button>
-)
-     }
-  }
+    )
+  }else{
+    return(
+    <Button waves='light' className="Google-button" onClick={this.handleAuth}>Login con Google</Button>
+  )
+       }
+    }
+  
+    render() {
+      return (
+        <div className="App">
+        <Navbar />
+          <header className="App-header">
+            <h1 className="App-title">Greener</h1>
+          </header>
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Greener</h1>
-        </header>
-        <p className="App-intro">
-        { this.renderLoginButton() }
-        </p>
-      </div>
-    );
-  }
- } 
-
-export default App;
+          <p className="App-intro">
+          { this.renderLoginButton() }
+          </p>
+        </div>
+      );
+    }
+   } 
+  
+  export default App;
