@@ -1,20 +1,12 @@
 .App {
   text-align: center;
+ 
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  height: 30px;
+.Form {
+ height: 30px;
   padding: 20px;
   color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
 }
 
 .App-intro {
@@ -25,12 +17,14 @@
   background-color: rgb(244, 67, 54);
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .brand-navbar{
   background-color:rgb(139, 195, 74);
   font-family: 'Julius Sans One', sans-serif;
+}
+
+.Facebook-button{
+  background-color: rgb(33, 150, 243);
+}
+.inicio-button{
+  background-color:rgb(139, 195, 74);
 }

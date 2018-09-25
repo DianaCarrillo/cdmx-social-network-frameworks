@@ -1,8 +1,9 @@
 // dependencias
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { Button } from 'react-materialize';
 import Navbar from './Navbar';
+import Form from './Form'
+import Profile from './Profile'
 
 // assets // fichero app
 import './App.css';
@@ -18,7 +19,7 @@ class App extends Component {
     };
     // todas las funciones que estén utilizando this., de esta manera le estamos indicando cuál es la referencia al objeto this que queremos que utilice
 
-    this.handleAuth = this.handleAuth.bind(this);
+    this.handleAuth = this.handleAuth.bind(this); // las funciones permanecen a ese componente App; es para que no pierda el scope
     this.handleLogout = this.handleLogout.bind(this);
     this.renderLoginButton = this.renderLoginButton.bind(this);
   }
@@ -34,6 +35,7 @@ class App extends Component {
   }
   
   handleAuth () {
+    console.log('hola')
   // nos va a crear un proveedor de google para utilizar
     const provider = new firebase.auth.GoogleAuthProvider();
  // devuelve una promesa con el objeto del usuario y queremos su email y que nos indique en la consola que ha iniciado sesión
@@ -52,30 +54,22 @@ renderLoginButton () {
 //  preguntamos si el usuario está logueado; es distino de null:
 if (this.state.user){
   return (
-    <div>
-     <img width ="100" src= {this.state.user.photoURL} alt= {this.state.user.displayName} />
-     <p>Hola {this.state.user.displayName}!</p>
-     <Button onClick= {this.handleLogout}>Salir</Button>
-    </div>
+  <div>
+   <Profile logOutFunction={this.handleLogout} user={this.state.user}/>
+  </div>
     )
   }else{
     return(
-    <Button waves='light' className="Google-button" onClick={this.handleAuth}>Login con Google</Button>
-  )
-       }
-    }
+      <Form authGoogle={this.handleAuth}/>
+       )
+     }
+   }
   
     render() {
       return (
         <div className="App">
-        <Navbar />
-          <header className="App-header">
-            <h1 className="App-title">Greener</h1>
-          </header>
-
-          <p className="App-intro">
-          { this.renderLoginButton() }
-          </p>
+          <Navbar />
+          <div className="App-intro">{ this.renderLoginButton() }</div>
         </div>
       );
     }
