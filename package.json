@@ -2,6 +2,7 @@
   "name": "social-network-f",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dianacarrillo.github.io/cdmx-social-network-frameworks",
   "dependencies": {
     "firebase": "^5.5.0",
     "materialize": "^1.0.0",
@@ -15,6 +16,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.0"
   }
 }
