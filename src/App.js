@@ -19,9 +19,11 @@ class App extends Component {
     };
     // todas las funciones que estén utilizando this., de esta manera le estamos indicando cuál es la referencia al objeto this que queremos que utilice
 
-    this.handleAuth = this.handleAuth.bind(this); // las funciones permanecen a ese componente App; es para que no pierda el scope
+    this.handleAuthGoogle = this.handleAuthGoogle.bind(this); // las funciones permanecen a ese componente App; es para que no pierda el scope
     this.handleLogout = this.handleLogout.bind(this);
     this.renderLoginButton = this.renderLoginButton.bind(this);
+    this.handleAuthFacebook= this.handleAuthFacebook.bind(this);
+
   }
 
   // método de lifecycle de react, lo que hace es dispararse una vez el componente ha sido renderizado en el DOM
@@ -34,7 +36,7 @@ class App extends Component {
    })
   }
   
-  handleAuth () {
+  handleAuthGoogle () {
     console.log('hola')
   // nos va a crear un proveedor de google para utilizar
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -44,6 +46,12 @@ class App extends Component {
     .catch(error => console.log (`Error ${error.code}: ${error.message}`))
   }
 
+  handleAuthFacebook () {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+    .then(result => console.log(`${result.user.email} ha iniciado sesión`))
+    .catch(error => console.log (`Error ${error.code}: ${error.message}`))
+  }
   handleLogout ( ){
     firebase.auth().signOut()
     .then(result => console.log(`${result.user.email} ha salido`))
@@ -60,7 +68,7 @@ if (this.state.user){
     )
   }else{
     return(
-      <Form authGoogle={this.handleAuth}/>
+      <Form authGoogle={this.handleAuthGoogle} authFacebook ={this.handleAuthFacebook}/>
        )
      }
    }

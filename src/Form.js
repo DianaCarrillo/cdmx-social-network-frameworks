@@ -1,14 +1,15 @@
 import React from 'react';
 // elementos de materialize
 import { Row, Input, Button } from 'react-materialize';
-const form = ({authGoogle}) => {
+
+const form = ({authGoogle, authFacebook}) => {
     return ( 
         <form className="Form">
             <Row>
                 <Button type="button" waves='light' className="Google-button" onClick={authGoogle} > Continuar con Google </Button>
             </Row>
             <Row>
-                <Button type="button" waves='light' className="Facebook-button" > Continuar con Facebook </Button>
+                <Button type="button" waves='light' className="Facebook-button" onClick={authFacebook} > Continuar con Facebook </Button>
             </Row>
             <Row>
                 <Button type ="button" waves='light' className="inicio-button" > Iniciar sesión </Button>
