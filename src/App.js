@@ -52,10 +52,33 @@ class App extends Component {
     .then(result => console.log(`${result.user.email} ha iniciado sesión`))
     .catch(error => console.log (`Error ${error.code}: ${error.message}`))
   }
-  handleLogout ( ){
+  handleLogout () {
     firebase.auth().signOut()
     .then(result => console.log(`${result.user.email} ha salido`))
     .catch(error => console.log (`Error ${error.code}: ${error.message}`))
+  }
+
+  logIn () {
+    let mail = document.getElementById('email');
+    let password = document.getElementById('password');
+    if (mail.value === '' || mail.value === ' ' || password.value === '' || password.value === ' ') { // condicionando el flujo de inicio de sesión 
+      alert('No ingresaste un correo o una contraseña válida');
+    } else {
+      let emailValue = mail.value;
+      let passwordValue = password.value;
+      const auth = firebase.auth(); // método de firebase para hacer la autenticación de los datos
+      auth.signInWithEmailAndPassword(emailValue, passwordValue)
+        .then(()=>{
+          console.log('has iniciado sesión');
+        // window.homeNetwork.mostrar(usuario); // llamamos a la función que creamos en app.js para cambiar de página
+        })
+        .catch((error)=> {
+          let errorCode = error.code;
+          let errorMessage = error.message; 
+          console.log(errorCode);
+          alert(errorMessage); // mensaje de firebase "This password is invalid or the user does not have a password"
+        });
+    };
   }
 
 renderLoginButton () {

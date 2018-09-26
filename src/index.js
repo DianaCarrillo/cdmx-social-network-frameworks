@@ -20,3 +20,5 @@ firebase.initializeApp({
 // ReactDOM, llama al método render. Le indicamos qué componente queremos renderizar en este caso es (App), que está importado arriba
 // y el elemento donde lo queremos renderizar en el html, es decir (root)
 ReactDOM.render(<App />, document.getElementById('root'));
+
+//variables de entorno archivo .env 

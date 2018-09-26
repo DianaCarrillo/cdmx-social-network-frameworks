@@ -2,7 +2,7 @@ import React from 'react';
 // elementos de materialize
 import { Row, Input, Button } from 'react-materialize';
 
-const form = ({authGoogle, authFacebook}) => {
+const form = ({authGoogle, authFacebook, logIn}) => {
     return ( 
         <form className="Form">
             <Row>
@@ -12,7 +12,7 @@ const form = ({authGoogle, authFacebook}) => {
                 <Button type="button" waves='light' className="Facebook-button" onClick={authFacebook} > Continuar con Facebook </Button>
             </Row>
             <Row>
-                <Button type ="button" waves='light' className="inicio-button" > Iniciar sesión </Button>
+                <Button type ="button" waves='light' className="inicio-button" onClick={logIn} > Iniciar sesión </Button>
             </Row>
             <Row>
                  <Input  type="email" label="Email" s={12} />
