@@ -4,7 +4,8 @@ import firebase from 'firebase';
 import Navbar from './Navbar';
 import Form from './Form'
 import Profile from './Profile'
-
+import Posts from './Posts.js'
+import NewPost from './NewPost'
 // assets // fichero app
 import './App.css';
 
@@ -46,7 +47,12 @@ class App extends Component {
     .catch(error => console.log (`Error ${error.code}: ${error.message}`))
   }
 
+  handleInput (e) {
+   console.log(e.target.name);
+  }
+
   handleAuthFacebook () {
+    console.log('hola FB')
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider)
     .then(result => console.log(`${result.user.email} ha iniciado sesión`))
@@ -59,39 +65,22 @@ class App extends Component {
   }
 
   logIn () {
-    let mail = document.getElementById('email');
-    let password = document.getElementById('password');
-    if (mail.value === '' || mail.value === ' ' || password.value === '' || password.value === ' ') { // condicionando el flujo de inicio de sesión 
-      alert('No ingresaste un correo o una contraseña válida');
-    } else {
-      let emailValue = mail.value;
-      let passwordValue = password.value;
-      const auth = firebase.auth(); // método de firebase para hacer la autenticación de los datos
-      auth.signInWithEmailAndPassword(emailValue, passwordValue)
-        .then(()=>{
-          console.log('has iniciado sesión');
-        // window.homeNetwork.mostrar(usuario); // llamamos a la función que creamos en app.js para cambiar de página
-        })
-        .catch((error)=> {
-          let errorCode = error.code;
-          let errorMessage = error.message; 
-          console.log(errorCode);
-          alert(errorMessage); // mensaje de firebase "This password is invalid or the user does not have a password"
-        });
-    };
+    console.log('has iniciado sesión')
   }
 
 renderLoginButton () {
 //  preguntamos si el usuario está logueado; es distino de null:
 if (this.state.user){
   return (
-  <div>
+  <div className="container">
    <Profile logOutFunction={this.handleLogout} user={this.state.user}/>
+   <NewPost user={this.state.user}/> 
+   <Posts />
   </div>
     )
   }else{
     return(
-      <Form authGoogle={this.handleAuthGoogle} authFacebook ={this.handleAuthFacebook}/>
+      <Form authGoogle={this.handleAuthGoogle} authFacebook={this.handleAuthFacebook} logIn={this.logIn} handleInput={this.handleInput}/>
        )
      }
    }
@@ -101,6 +90,7 @@ if (this.state.user){
         <div className="App">
           <Navbar />
           <div className="App-intro">{ this.renderLoginButton() }</div>
+        
         </div>
       );
     }

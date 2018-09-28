@@ -28,3 +28,11 @@
 .inicio-button{
   background-color:rgb(139, 195, 74);
 }
+
+.button-cerrar{
+  font-size: 15px;
+}
+
+.card-container{
+  width: 100%
+}
