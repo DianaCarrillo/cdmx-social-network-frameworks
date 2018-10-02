@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import Navbar from './Navbar';
-import Form from './Form'
+import Login from './Login'
 import Profile from './Profile'
 import Posts from './Posts.js'
 import NewPost from './NewPost'
@@ -31,7 +31,6 @@ class App extends Component {
   componentWillMount () {
     // devuelve un objeto usuario. Cada vez que nos loggeemos o salgamos, el objeto va a tener el usuario o va a salir null
   firebase.auth().onAuthStateChanged(user =>{
-    // esto se dispara después del pop up y va a setear el estado
   // modifica el estado. Si la clave y el valor son el mismo, se peude poner solo una vez. Es lo mismo que user: user
     this.setState({ user });
    })
@@ -47,10 +46,6 @@ class App extends Component {
     .catch(error => console.log (`Error ${error.code}: ${error.message}`))
   }
 
-  handleInput (e) {
-   console.log(e.target.name);
-  }
-
   handleAuthFacebook () {
     console.log('hola FB')
     const provider = new firebase.auth.FacebookAuthProvider();
@@ -64,9 +59,6 @@ class App extends Component {
     .catch(error => console.log (`Error ${error.code}: ${error.message}`))
   }
 
-  logIn () {
-    console.log('has iniciado sesión')
-  }
 
 renderLoginButton () {
 //  preguntamos si el usuario está logueado; es distino de null:
@@ -80,7 +72,7 @@ if (this.state.user){
     )
   }else{
     return(
-      <Form authGoogle={this.handleAuthGoogle} authFacebook={this.handleAuthFacebook} logIn={this.logIn} handleInput={this.handleInput}/>
+      <Login authGoogle={this.handleAuthGoogle} authFacebook={this.handleAuthFacebook}  />
        )
      }
    }
@@ -89,6 +81,7 @@ if (this.state.user){
       return (
         <div className="App">
           <Navbar />
+        <p>¡Comparte recetas saludables y deliciosas con tus amigos!</p>
           <div className="App-intro">{ this.renderLoginButton() }</div>
         
         </div>

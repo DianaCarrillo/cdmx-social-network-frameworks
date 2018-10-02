@@ -5,18 +5,18 @@ import { Input, Button } from 'react-materialize';
 
 class NewPost extends Component {
     constructor() {
-        
         super();
-       
         this.state = {
          message:""
     }
+
     this.handleMessage = this.handleMessage.bind(this); // las funciones permanecen a ese componente App; es para que no pierda el scope
-        this.sentMessage =this.sentMessage.bind(this);
+    this.sentMessage =this.sentMessage.bind(this);
 }
 
   handleMessage (e){
     this.setState =({message: e.target.value});
+    console.log(e.target.value)
     
   }
 
