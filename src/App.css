@@ -62,7 +62,7 @@
 }
 
 .card-container{
-  width: 100%
+  width: 50%
 }
 
 .register-instruction{
@@ -93,7 +93,11 @@ font-size: 15px;
 }
 
 .post-container{
- margin-top: 10%;
+  margin-top:10%;
+ margin-bottom: 15%;
+ margin-right: 15%;
+ margin-left: 15%;
+
 }
 
 .post-content{
@@ -111,18 +115,27 @@ font-weight: bolder
 } 
 
 .card-footer{
-margin-top:7%;
+margin-top:10%;
 background-color:blue 
 }
 
 .post-message{
 margin-left: 40%;
+margin-top:40px;
 /* font-family: 'Montserrat Alternates', sans-serif; */
 padding-right: 10%;
 text-align: left;
 }
 
 .profile-container{
-  background-color: rgb(250, 251, 252);
+  /* background-color: rgb(250, 251, 252); */
   padding-top:30px; 
+}
+
+.edit-message-btn, .delete-message-btn{
+  margin:2%;
+}
+
+.container{
+  background-color: rgb(250, 251, 252); 
 }
