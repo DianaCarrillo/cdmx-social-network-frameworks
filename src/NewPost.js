@@ -1,42 +1,47 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import firebase from 'firebase';
-// import React from 'react';
-import { Input, Button } from 'react-materialize';
+import { Input, Button, Modal } from 'react-materialize';
+// import Posts from 'Posts'
 
 class NewPost extends Component {
     constructor() {
         super();
         this.state = {
-         message:""
+         message:''
     }
-
-    this.handleMessage = this.handleMessage.bind(this); // las funciones permanecen a ese componente App; es para que no pierda el scope
-    this.sentMessage =this.sentMessage.bind(this);
 }
 
-  handleMessage (e){
-    this.setState =({message: e.target.value});
-    console.log(e.target.value)
-    
+  handleMessage = (e) =>{
+    // console.log(e.target.value);
+    this.setState({[e.target.name]: e.target.value});
+    // console.log(e.target.name)
   }
 
-  sentMessage (){
-    firebase.database().ref('new').push();
-    const postNew = firebase.database().ref('new').push();
-    const key = postNew.getKey();
-    firebase.database().ref(`new/${key}`).set({ 
-        message: this.state.message,
+  sentMessage = () =>{
+    const currentUser = firebase.auth().currentUser;
+    const newPost = firebase.database().ref('new').push();
+    const key = newPost.getKey();
+    firebase.database().ref(`new/${key}`).set({
+        creatorName:currentUser.displayName,
+        photoUrl: currentUser.photoURL,
+        UserEmail: currentUser.email, 
+        creator: currentUser.uid,
+        message: this.state.messageInput,
         keyPost: key
-        });
+        })
+          this.setState({messageInput: ''})        
   }
 
   render() {
       return(
     <div>
-      <Input  onChange={this.handleMessage} name="post"/>
-      <Button className="button-pubish" onClick = {this.sentMessage} >Publicar</Button>
+      <Modal trigger={<Button className="publicar-algo-button">Nuevo post</Button>}>
+        <Input  name="messageInput" placeholder="¿Qué tip saludable compartirás hoy?" onChange={this.handleMessage} />
+        <Button className="button-pubish" onClick={this.sentMessage} >Publicar</Button>
+      </Modal>
     </div>
     )
   }
 }
  export default NewPost;
+

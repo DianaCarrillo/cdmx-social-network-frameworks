@@ -5,24 +5,20 @@ import firebase from 'firebase';
 
 class Login extends Component {
     constructor(props) {
-      console.log(props)
         super(props);
      
         this.state = {
                 email: '',
                 password:''
         }
-        
-        this.login =this.login.bind(this);
-        this.handleChange= this.handleChange.bind(this);
-        this.signUp = this.signUp.bind(this);
     }
 
-    handleChange(e) {
+    handleChange=(e)=> {
       this.setState({[e.target.name]: e.target.value});
+      // console.log(e.target.name)
   }
 
-    login(e) {
+    login=(e)=> {
         e.preventDefault();
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
           console.log(`el usuario ${u} ha iniciado sesión`)
@@ -32,7 +28,7 @@ class Login extends Component {
       })
     }
 
-    signUp(e) {
+    signUp=(e) => {
       e.preventDefault();
       firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
         alert(`el usuario ${u} se ha registado`)
@@ -42,8 +38,6 @@ class Login extends Component {
       })
 
     }
-
-
 
     render (){
       return(
