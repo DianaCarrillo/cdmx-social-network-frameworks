@@ -32,10 +32,12 @@ class NewPost extends Component {
           this.setState({messageInput: ''})        
   }
 
+  
+
   render() {
       return(
     <div>
-      <Modal trigger={<Button className="publicar-algo-button">Nuevo post</Button>}>
+      <Modal trigger={<Button className="publicar-algo-button">New post</Button>}>
         <Input  name="messageInput" placeholder="¿Qué tip saludable compartirás hoy?" onChange={this.handleMessage} />
         <Button className="button-pubish" onClick={this.sentMessage} >Publicar</Button>
       </Modal>

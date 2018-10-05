@@ -75,9 +75,7 @@ if (this.state.user){
       return (
         <div className="App">
           <Navbar />
-        <p>¡Comparte tus mejores tips y recetas saludables!</p>
           <div className="App-intro">{ this.renderLoginButton() }</div>
-        {/* <Posts /> */}
         </div>
       );
     }

@@ -41,7 +41,7 @@ class Login extends Component {
 
     render (){
       return(
-        <form className="Form">
+        <form className="Form" center>
            <Row>
               <Button type="button" waves='light' className="Google-button" onClick={this.props.authGoogle}> Continuar con Google </Button>
             </Row>

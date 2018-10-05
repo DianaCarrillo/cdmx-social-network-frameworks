@@ -4,7 +4,15 @@ body {
   font-family: sans-serif;
 }
 
+
 .password-input, .email-input{
   color: black;
 }
 
+html{
+  background: url(kate_meal-kit-lead_79-web.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
