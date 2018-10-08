@@ -118,11 +118,6 @@ Y terminamos con Eat & Move-O-Matic, la más “gamificada” de todas las que h
    
 En su mayoria, las aplicaciones usan colores y lenguaje muy sencillo de entender, su interfaz es muy organica y contrastante, usan de fondo el blanco para que los colores, verde, naranja o rojo, que son los que más se usan, no sean tan agresivos.
 
-<img align="center" src="src/UX/imagenes-ux/benchmark1.png"/>
-<img align="center" src="src/UX/imagenes-ux/benchmark2.jpg"/>
-<img align="center" src="src/UX/imagenes-ux/mysugr-logbook-phone.png"/>
-<img align="center" src="src/UX/imagenes-ux/selecting-2Harvest.png"/>
-
 # Instructivo
 
 Para utilizar Greener puedes acceder desde tu cuenta de Google o Facebook clickando en los botones correspondientes o bien puedes registrarte con otra cuenta de correo e iniciar sesión. Comparte publicaciones con tus amigos escribiendo en el input y dando click en publicar. Así mismo:
