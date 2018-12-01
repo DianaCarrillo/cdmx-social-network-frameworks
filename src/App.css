@@ -117,8 +117,9 @@ margin-top: 50px;
 }
 
 .img-user{
-  margin-top:5%;
+  margin-top:50px;
   margin-left:-100px;
+  margin-bottom:20px;
 
 }
 
@@ -149,6 +150,7 @@ text-align: left;
 
 .edit-message-btn, .delete-message-btn{
   margin:2%;
+  display: inline-block;
 }
 
 .container{
