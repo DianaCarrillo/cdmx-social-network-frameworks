@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import Login from './Login'
 import Profile from './Profile'
 import Posts from './Posts.js'
-import NewPost from './NewPost'
+// import NewPost from './NewPost'
 // assets // fichero app
 import './App.css';
 
@@ -60,7 +60,7 @@ if (this.state.user){
   return (
   <div className="container">
    <Profile logOutFunction={this.handleLogout} user={this.state.user}/>
-   <NewPost user={this.state.user}/> 
+   {/* <NewPost user={this.state.user}/>  */}
    <Posts user={this.state.user} />
   </div>
     )
