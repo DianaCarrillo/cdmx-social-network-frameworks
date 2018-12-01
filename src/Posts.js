@@ -61,7 +61,7 @@ class Posts extends Component{
                         </div> 
                     </Card>
                             )
-                        })
+                        }).reverse()
                         }
                 </div>
         )
